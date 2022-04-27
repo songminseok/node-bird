@@ -24,8 +24,11 @@ FC 타입으로 functional component를 설정하면 children을 바로 사용�
 (Remove React.FC from Typescript template)[https://github.com/facebook/create-react-app/pull/8177]
 React 18 이후에는 제거되었으므로 사용할 필요가 없다.
 
+## 2022-04-27 2차
 
+ant design, ant design icon, @emotion/react, @emotion/styled 를 사용한다. (강좌에서는 ant design과 styled-component를 사용하였다.)
 
+ant design이 4.20으로 넘어오면서 Menu 사용법이 조금 바뀌었다.
 
 
 
