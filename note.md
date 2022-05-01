@@ -30,6 +30,11 @@ ant design, ant design icon, @emotion/react, @emotion/styled 를 사용한다. (
 
 ant design이 4.20으로 넘어오면서 Menu 사용법이 조금 바뀌었다.
 
+## 2022-05-02 3차
+
+jsx-ally 로 typo 낸 것을 a11y 로 수정
+
+lerna로 설정하지 않고 루트에서 시작하여 eslint 가 정상동작하지 않음. 이에 intellij를 learn 폴더에서 직접 열어서 사용하고, git에 intellij 프로젝트 설정을 푸시함.
 
 
 
