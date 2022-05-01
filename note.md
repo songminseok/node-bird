@@ -36,5 +36,17 @@ jsx-ally 로 typo 낸 것을 a11y 로 수정
 
 lerna로 설정하지 않고 루트에서 시작하여 eslint 가 정상동작하지 않음. 이에 intellij를 learn 폴더에서 직접 열어서 사용하고, git에 intellij 프로젝트 설정을 푸시함.
 
+nextjs 에서 _app.tsx 의 Props를 받을 때는 AppProps를 받으면 편하다.
 
+```tsx
+const NodeBird = ({Component, pageProps}: AppProps) => {
+  return (
+    <Component {...pageProps} />
+  )
+}
+```
+
+a tag에서 `rel="noopener noreferer"`의 사용 관련하여
+(rel 속성 - noreferrer, noopener, nofollow)[https://3rabbitz.com/blog_ko/08d34c69855fbcad]
+(Everything You Need to Know About rel=”noopener noreferrer”)[https://clever-solution.com/everything-you-need-to-know-about-rel-noopener-noreferrer-tags-purpose-benefits-and-seo-impact/]
 
