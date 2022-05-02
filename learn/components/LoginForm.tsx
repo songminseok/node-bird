@@ -5,12 +5,11 @@ import Link from 'next/link'
 import {css} from '@emotion/react'
 
 const inputWrapperStyle = css({
-  padding: 10
+  padding: 10,
 })
 
 const buttonWrapperStyle = css({
   marginTop: 10,
-  padding: 10,
 })
 
 interface FormValues {
@@ -18,12 +17,17 @@ interface FormValues {
   password: string
 }
 
-export default function LoginForm() {
+interface Props {
+  setIsLoggedIn: (loggedIn: boolean) => void
+}
+
+export default function LoginForm({setIsLoggedIn}: Props) {
   const {handleSubmit, control} = useForm<FormValues>()
 
   const onSubmit = React.useCallback((values: FormValues) => {
     console.log('[OnSubmit] values', values)
-  }, [])
+    setIsLoggedIn(true)
+  }, [setIsLoggedIn])
 
   return (
     <form css={inputWrapperStyle} onSubmit={handleSubmit(onSubmit)}>
