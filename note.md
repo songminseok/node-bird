@@ -50,3 +50,16 @@ a tag에서 `rel="noopener noreferer"`의 사용 관련하여
 (rel 속성 - noreferrer, noopener, nofollow)[https://3rabbitz.com/blog_ko/08d34c69855fbcad]
 (Everything You Need to Know About rel=”noopener noreferrer”)[https://clever-solution.com/everything-you-need-to-know-about-rel-noopener-noreferrer-tags-purpose-benefits-and-seo-impact/]
 
+## 2022-05-02 4차
+
+react-hook-form을 도입하여 Form 작업을 한다.
+
+인라인 스타일에 object를 사용하면 rerendering이 발생한다. 왜냐하면 object를 function이 실행될 때마다 새로 만들어지기 때문이다.
+하지만 인라인 스타일이 rerendering에 심각한 영향을 미치지 않을 수 있으므로 너무 과도하지만 않으면 크게 문제는 없다.
+
+@emotion css 스타일을 사용하려면 `tsconfig.json`의 `compilterOptions`부분에 다음을 추가한다.
+
+```json lines
+"jsx": "react-jsx",
+"jsxImportSource": "@emotion/react"
+```

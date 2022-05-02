@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from "next/link"
 import React from "react"
-import {Menu, Input, Row, Col} from 'antd'
+import {Col, Input, Menu, Row} from 'antd'
+import UserProfile from "./UserProfile";
+import LoginForm from "./LoginForm";
 
 const items = [
   {label: <Link href="/"><a>홈</a></Link>, key: '1'},
@@ -15,12 +17,14 @@ interface Props {
 }
 
 const AppLayout = ({children}: Props) => {
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false)
+
   return (
     <div>
       <Menu items={items} mode="horizontal"/>
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          왼쪽 메뉴
+          {isLoggedIn ? <UserProfile /> : <LoginForm />}
         </Col>
         <Col xs={24} md={12}>
           {children}
