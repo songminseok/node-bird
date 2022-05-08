@@ -4,6 +4,8 @@ import React from "react"
 import {Col, Input, Menu, Row} from 'antd'
 import UserProfile from "./UserProfile";
 import LoginForm from "./LoginForm";
+import {selectIsLoggedIn} from '../store/users'
+import {useAppSelector} from '../store/hooks'
 
 const items = [
   {label: <Link href="/"><a>홈</a></Link>, key: '1'},
@@ -17,14 +19,14 @@ interface Props {
 }
 
 const AppLayout = ({children}: Props) => {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false)
+  const isLoggedIn = useAppSelector(selectIsLoggedIn)
 
   return (
     <div>
       <Menu items={items} mode="horizontal"/>
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          {isLoggedIn ? <UserProfile setIsLoggedIn={setIsLoggedIn}/> : <LoginForm setIsLoggedIn={setIsLoggedIn}/>}
+          {isLoggedIn ? <UserProfile/> : <LoginForm/>}
         </Col>
         <Col xs={24} md={12}>
           {children}

@@ -1,6 +1,8 @@
 import React from 'react'
 import {Avatar, Button, Card} from 'antd'
 import {css} from '@emotion/react'
+import {useAppDispatch} from '../store/hooks'
+import {logout} from '../store/users'
 
 const cardStyle = css({
   width: 300,
@@ -10,14 +12,11 @@ const buttonStyle = css({
   marginTop: 20,
 })
 
-interface Props {
-  setIsLoggedIn: (loggedIn: boolean) => void
-}
-
-export default function UserProfile({setIsLoggedIn}: Props) {
+export default function UserProfile() {
+  const dispatch = useAppDispatch()
   const onLogout = React.useCallback(() => {
-    setIsLoggedIn(false)
-  }, [setIsLoggedIn])
+    dispatch(logout())
+  }, [dispatch])
 
   return (
     <Card

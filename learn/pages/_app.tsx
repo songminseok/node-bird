@@ -2,6 +2,7 @@ import React from 'react'
 import 'antd/dist/antd.css'
 import {AppProps} from "next/app";
 import Head from "next/head";
+import {wrapper} from '../store/store'
 
 const NodeBird = ({Component, pageProps}: AppProps) => {
   return (
@@ -16,4 +17,4 @@ const NodeBird = ({Component, pageProps}: AppProps) => {
   )
 }
 
-export default NodeBird
+export default wrapper.withRedux(NodeBird)

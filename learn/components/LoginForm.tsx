@@ -1,8 +1,10 @@
 import {Button, Input} from 'antd'
 import React from 'react'
-import {useForm, Controller} from 'react-hook-form'
+import {Controller, useForm} from 'react-hook-form'
 import Link from 'next/link'
 import {css} from '@emotion/react'
+import {useAppDispatch} from '../store/hooks'
+import {login} from '../store/users'
 
 const inputWrapperStyle = css({
   padding: 10,
@@ -17,17 +19,15 @@ interface FormValues {
   password: string
 }
 
-interface Props {
-  setIsLoggedIn: (loggedIn: boolean) => void
-}
 
-export default function LoginForm({setIsLoggedIn}: Props) {
+export default function LoginForm() {
+  const dispatch = useAppDispatch()
   const {handleSubmit, control} = useForm<FormValues>()
 
   const onSubmit = React.useCallback((values: FormValues) => {
     console.log('[OnSubmit] values', values)
-    setIsLoggedIn(true)
-  }, [setIsLoggedIn])
+    dispatch(login({user: {name: 'minseok'}}))
+  }, [dispatch])
 
   return (
     <form css={inputWrapperStyle} onSubmit={handleSubmit(onSubmit)}>

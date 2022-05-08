@@ -57,9 +57,23 @@ react-hook-form을 도입하여 Form 작업을 한다.
 인라인 스타일에 object를 사용하면 rerendering이 발생한다. 왜냐하면 object를 function이 실행될 때마다 새로 만들어지기 때문이다.
 하지만 인라인 스타일이 rerendering에 심각한 영향을 미치지 않을 수 있으므로 너무 과도하지만 않으면 크게 문제는 없다.
 
-@emotion css 스타일을 사용하려면 `tsconfig.json`의 `compilterOptions`부분에 다음을 추가한다.
+@emotion css 스타일을 사용하려면 `tsconfig.json`의 `compilerOptions`부분에 다음을 추가한다.
 
 ```json lines
 "jsx": "react-jsx",
 "jsxImportSource": "@emotion/react"
 ```
+
+## 2022-05-04 5차
+
+redux 를 사용해서 따라한다.
+
+`zustand`를 한 번 사용해보려고 했는데, 해당 강의가 `redux-saga`, `thunk` 등과 물려 있어 일단은 강의에서 사용하는 redux 를 따라한다.
+
+next에서 redux를 사용하는 경우 server side rendering 등 기능과의 원활한 소통을 위해 `next-redux-wrapper`를 사용한다.
+
+## 2022-05-08
+
+next-redux-wrapper 의 기본 설정을 redux toolkit 과 조합하여 설정하였다. 
+
+SSR 특성으로 인해 서버 사이드에서 생성한 store의 상태값을 reducer 에서 항상 머지를 해 줘야 한다. 이 특수한 목적으로 HYDRATE action을 제공하고 있다.
