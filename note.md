@@ -72,8 +72,18 @@ redux 를 사용해서 따라한다.
 
 next에서 redux를 사용하는 경우 server side rendering 등 기능과의 원활한 소통을 위해 `next-redux-wrapper`를 사용한다.
 
-## 2022-05-08
+## 2022-05-08 6차
 
 next-redux-wrapper 의 기본 설정을 redux toolkit 과 조합하여 설정하였다. 
 
 SSR 특성으로 인해 서버 사이드에서 생성한 store의 상태값을 reducer 에서 항상 머지를 해 줘야 한다. 이 특수한 목적으로 HYDRATE action을 제공하고 있다.
+
+## 2022-05-10 7차
+
+> redux를 SSR로 사용할 때 문제가 있을 수 있다는 것을 이해하지 못하겠다. 어떻게 쓰는지도.... 며칠을 이것 관련해서 살펴봤는데 이해가 안 간다. SSG, SSR의 경우 client의 상태를 알 수 없고, 생성 시점에 store를 새로 생성해야 하므로 state를 유지하지 못한다는 것은 이해를 했는데, next-redux-wrapper를 쓴다고 해서 client의 상태를 서버에서 알 수 있을 것 같지도 않다. 특히 SSG의 경우 build time에 store를 생성하는데 이게 무슨 의미가 있는지 모르겠다. 만약 SSG 페이지가 여러 개이고 각각 store를 생성하고 여러 action을 dispatch해 버리면, state가 꼬일텐데 이건 store 복구의 이슈가 아니라 그냥 그 자체로 상태 관리의 문제가 되는 것 아닌가? store라는 것이 app의 상태이고 app의 상태라는 것은 client의 상태랑 동일하다고 봐도 되지 않을까? 물론 global state라고 한다면 client + server 이겠으나. SSG, SSR을 적용할 때 상태에 의존한다는 것 자체가 모순 아닐까?
+
+![reducer-index](reducer-index.png)
+
+> 며칠째 redux와 SSR/SSG 때문에 관련자료를 검색해 보고 이해해 보려 했지만 위와 같이 정리가 되지 않는다. 이런 이유로 오늘도 결국 셋업만 하고 끝난 듯... 
+ 
+더미데이터와 포스트폼 만들기 할 차례

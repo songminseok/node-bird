@@ -26,7 +26,7 @@ export default function LoginForm() {
 
   const onSubmit = React.useCallback((values: FormValues) => {
     console.log('[OnSubmit] values', values)
-    dispatch(login({user: {name: 'minseok'}}))
+    dispatch(login({name: 'minseok'}))
   }, [dispatch])
 
   return (

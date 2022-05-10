@@ -4,7 +4,7 @@ import {HYDRATE} from 'next-redux-wrapper'
 const postsSlice = createSlice({
   name: 'posts',
   initialState: {
-    posts: []
+    mainPosts: []
   },
   reducers: {},
   extraReducers: {

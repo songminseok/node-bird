@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 import {HYDRATE} from 'next-redux-wrapper'
 import {AppState} from './store'
 
@@ -6,21 +6,23 @@ const usersSlice = createSlice({
   name: 'users',
   initialState: {
     isLoggedIn: false,
-    user: {}
+    user: null,
+    signUpData: {},
+    loginData: {}
   },
   reducers: {
-    login(state, action) {
+    login: (state, action) => {
       return {
         ...state,
         isLoggedIn: true,
         user: action.payload
       }
     },
-    logout(state) {
+    logout: (state) => {
       return {
         ...state,
         isLoggedIn: false,
-        user: {}
+        user: null
       }
     }
   },

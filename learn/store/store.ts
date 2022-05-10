@@ -26,7 +26,7 @@ const rootReducer = (
 
 const makeStore = () => configureStore({
   reducer: rootReducer,
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: process.env.NODE_ENV === 'development',
 })
 
 // reduxt toolkit 의 가이드
@@ -41,4 +41,4 @@ export type AppState = ReturnType<AppStore['getState']>;
 export type AppDispatch = AppStore['dispatch']
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, AppState, unknown, Action>;
 
-export const wrapper = createWrapper<AppStore>(makeStore)
+export const wrapper = createWrapper<AppStore>(makeStore, {debug: process.env.NODE_ENV === 'development'})
